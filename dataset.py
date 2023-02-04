@@ -92,30 +92,30 @@ gt_list = [os.path.join(gt_dir, f) for f in os.listdir(gt_dir)]
 gt_list.sort()
 
 
-# for i in range(len(gt_list)):
-#     image_0dB = pf.read_bin_file(input_0dB_list[i])
-#     image_24dB = pf.read_bin_file(input_24dB_list[i]) 
-#     image_42dB = pf.read_bin_file(input_42dB_list[i])
-#     gt = pf.read_bin_file(gt_list[i])
-#     for j in range(1, 101):
-#         h = image_0dB.shape[-2]
-#         w = image_0dB.shape[-1]
-#         if h <= crop_size or w <= crop_size:
-#             rand_h = 0
-#             rand_w = 0
-#         else:
-#             rand_h = np.random.randint(0, (h - crop_size) // 4) * 4
-#             rand_w = np.random.randint(0, (w - crop_size) // 4) * 4
+for i in range(len(gt_list)):
+    image_0dB = pf.read_bin_file(input_0dB_list[i])
+    image_24dB = pf.read_bin_file(input_24dB_list[i]) 
+    image_42dB = pf.read_bin_file(input_42dB_list[i])
+    gt = pf.read_bin_file(gt_list[i])
+    for j in range(1, 101):
+        h = image_0dB.shape[-2]
+        w = image_0dB.shape[-1]
+        if h <= crop_size or w <= crop_size:
+            rand_h = 0
+            rand_w = 0
+        else:
+            rand_h = np.random.randint(0, (h - crop_size) // 4) * 4
+            rand_w = np.random.randint(0, (w - crop_size) // 4) * 4
         
-#         image_0dB = image_0dB[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
-#         image_24dB = image_24dB[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
-#         image_42dB = image_42dB[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
-#         gt = gt[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
+        image_0dB = image_0dB[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
+        image_24dB = image_24dB[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
+        image_42dB = image_42dB[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
+        gt = gt[rand_h : rand_h + crop_size, rand_w : rand_w + crop_size]
        
-#         pf.save_bin(os.path.join(root, "input/crops/image_0dB/image0%d_%d"%(i+1,j)),image_0dB)
-#         pf.save_bin(os.path.join(root, "input/crops/image_24dB/image0%d_%d"%(i+1,j)),image_24dB)
-#         pf.save_bin(os.path.join(root, "input/crops/image_42dB/image0%d_%d"%(i+1,j)),image_42dB)
-#         pf.save_bin(os.path.join(root, "input/crops/image0%d_%d"%(i+1,j)),gt)
+        pf.save_bin(os.path.join(root, "input/crops/image_0dB/image0%d_%d"%(i+1,j)),image_0dB)
+        pf.save_bin(os.path.join(root, "input/crops/image_24dB/image0%d_%d"%(i+1,j)),image_24dB)
+        pf.save_bin(os.path.join(root, "input/crops/image_42dB/image0%d_%d"%(i+1,j)),image_42dB)
+        pf.save_bin(os.path.join(root, "input/crops/image0%d_%d"%(i+1,j)),gt)
     
         
         

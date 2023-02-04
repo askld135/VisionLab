@@ -46,8 +46,8 @@ def save_bin(filepath, arr):
 
 if __name__ == '__main__':
 
-    filepath = './sample/rgbw_001_fullres_0db.bin'
+    filepath = 'RGBW_training_dataset_fullres/rgbw_rmsc_start_here/data_scripts/sample/rgbw_001_fullres_0db.bin'
     rgbw_data = read_bin_file(filepath)
 
-    savepath = './sample/rgbw_001_fullres_0db_saved.bin'
+    savepath = 'RGBW_training_dataset_fullres/rgbw_rmsc_start_here/data_scripts/sample/rgbw_001_fullres_0db_saved.bin'
     save_bin(savepath, rgbw_data)
